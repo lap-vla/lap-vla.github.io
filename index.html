@@ -26,6 +26,50 @@
 </head>
 
 <body>
+  <!-- Progress Sidebar -->
+  <nav class="progress-sidebar" aria-label="Page progress">
+    <div class="progress-track">
+      <div class="progress-line"></div>
+      <div class="progress-line-fill"></div>
+      <div class="progress-item" data-section="hero">
+        <a href="#">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Intro</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="zeroshot">
+        <a href="#zeroshot">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Zero-shot</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="comparison">
+        <a href="#comparison">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Comparison</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="finetuning">
+        <a href="#finetuning">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Fine-tuning</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="language">
+        <a href="#language">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Language</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="analysis">
+        <a href="#analysis">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Analysis</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <section class="teaser">
     <div class="hero-header" style="background-color: #2a2a2a;">
       <div class="hero-header-inner">
@@ -114,7 +158,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Zero-shot Cross-Embodiment Generalization</h2>
+          <h2 class="title is-3" id="zeroshot">Zero-shot Cross-Embodiment Generalization</h2>
           <div class="content has-text-justified">
             <p>
               LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines. Error bars denote 95% statistically valid finite-sample confidence intervals.
@@ -238,7 +282,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Zero-shot Comparison</h2>
+          <h2 class="title is-3" id="comparison">Zero-shot Comparison</h2>
           <div class="content has-text-justified">
             <p>
               Qualitative comparisons against strong open-sourced baselines under zero-shot embodiment transfer. We show representative rollouts for the same task across policies.
@@ -337,7 +381,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Fine-tuning Efficiency</h2>
+          <h2 class="title is-3" id="finetuning">Fine-tuning Efficiency</h2>
           <div class="content has-text-justified">
             <p>
               Across both simulation and real-world manipulation tasks, LAP-3B adapts substantially faster than baselines, reaching high performance with significantly fewer epochs and demonstrations.
@@ -386,7 +430,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Language Following</h2>
+          <h2 class="title is-3" id="language">Language Following</h2>
         </div>
       </div>
     </div>
@@ -419,7 +463,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Analysis</h2>
+          <h2 class="title is-3" id="analysis">Analysis</h2>
         </div>
       </div>
     </div>
@@ -461,6 +505,66 @@
   </section>
 
   <script>
+    // Progress Sidebar
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressItems = document.querySelectorAll('.progress-item');
+      const progressLineFill = document.querySelector('.progress-line-fill');
+      const progressTrack = document.querySelector('.progress-track');
+
+      const sections = [];
+      progressItems.forEach(item => {
+        const id = item.dataset.section;
+        let el;
+        if (id === 'hero') {
+          el = document.querySelector('.teaser');
+        } else {
+          el = document.getElementById(id);
+        }
+        if (el) {
+          sections.push({ id, el });
+        }
+      });
+
+      const updateProgress = () => {
+        if (sections.length === 0) return;
+
+        const viewportHeight = window.innerHeight;
+        const activationThreshold = viewportHeight * 0.35;
+
+        let activeIdx = 0;
+        for (let idx = 0; idx < sections.length; idx++) {
+          const rect = sections[idx].el.getBoundingClientRect();
+          if (rect.top <= activationThreshold) {
+            activeIdx = idx;
+          } else {
+            break;
+          }
+        }
+
+        if (progressLineFill && progressTrack) {
+          const trackHeight = progressTrack.offsetHeight;
+          const maxFillHeight = trackHeight - 44;
+          const fillHeight = (activeIdx / Math.max(sections.length - 1, 1)) * maxFillHeight;
+          progressLineFill.style.height = `${Math.min(Math.max(fillHeight, 0), maxFillHeight)}px`;
+        }
+
+        progressItems.forEach(item => {
+          const sectionId = item.dataset.section;
+          const sectionIdx = sections.findIndex(s => s.id === sectionId);
+
+          item.classList.remove('active', 'passed');
+          if (sectionIdx === activeIdx) {
+            item.classList.add('active');
+          } else if (sectionIdx >= 0 && sectionIdx < activeIdx) {
+            item.classList.add('passed');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    });
+
     function selectZeroShotRobot() {
       var selected = document.getElementById('zeroshot-robot-selection').value;
       var sections = document.querySelectorAll('.zeroshot-robot-section');
