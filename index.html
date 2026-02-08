@@ -71,12 +71,26 @@
   </nav>
 
   <section class="teaser">
-    <div class="hero-header" style="background-color: #2a2a2a;">
+    <div class="hero-header">
       <div class="hero-header-inner">
         <div class="hero-header-content">
-          <h1 class="publication-title" style="max-width: 1020px; margin: 0 auto; font-size: clamp(28px, 4vw, 56px); line-height: 1.2;">
+          <h1 class="publication-title" style="max-width: 1020px; margin: 0 auto; font-size: clamp(26.6px, 3.8vw, 53.2px); line-height: 1.2;">
             LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer
           </h1>
+          <div class="authors" style="margin: 0 auto 15px auto;">
+            <a href="#" target="_blank">Lihan Zha</a><sup>1</sup>,
+            <a href="#" target="_blank">Asher J. Hancock</a><sup>1</sup>*,
+            <a href="#" target="_blank">Mingtong Zhang</a><sup>1</sup>*,
+            <a href="#" target="_blank">Tenny Yin</a><sup>1</sup>,
+            <a href="#" target="_blank">Yixuan Huang</a><sup>1</sup>,<br>
+            <a href="#" target="_blank">Dhruv Shah</a><sup>1</sup>,
+            <a href="#" target="_blank">Allen Z. Ren</a><sup>2</sup>&dagger;,
+            <a href="#" target="_blank">Anirudha Majumdar</a><sup>1</sup>&dagger;
+            <span class="author-note">*Equal contribution, &dagger;Equal advising</span>
+            <span class="affiliation">
+              <sup>1</sup>Princeton University, <sup>2</sup>Physical Intelligence
+            </span>
+          </div>
           <div class="publication-links header-links">
             <a class="button is-rounded" href="#" target="_blank">
               <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -93,31 +107,28 @@
           </div>
         </div>
       </div>
+      
+      <div class="hero-waves" aria-hidden="true">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="wave-parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(240,120,0,0.25)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,215,0,0.2)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,127,80,0.18)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(240,120,0,0.25)"></use>
+          </g>
+        </svg>
+      </div>
     </div>
 
-    <div class="hero-body" style="padding-top: 25px !important;">
+    <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <div class="is-size-5 publication-authors">
-              <div class="authors">
-                <a href="#" target="_blank">Lihan Zha</a><sup>1</sup>,
-                <a href="#" target="_blank">Asher J. Hancock</a><sup>1</sup>*,
-                <a href="#" target="_blank">Mingtong Zhang</a><sup>1</sup>*,
-                <a href="#" target="_blank">Tenny Yin</a><sup>1</sup>,
-                <a href="#" target="_blank">Yixuan Huang</a><sup>1</sup>,<br>
-                <a href="#" target="_blank">Dhruv Shah</a><sup>1</sup>,
-                <a href="#" target="_blank">Allen Z. Ren</a><sup>2</sup>&dagger;,
-                <a href="#" target="_blank">Anirudha Majumdar</a><sup>1</sup>&dagger;
-                <span class="author-note">*Equal contribution, &dagger;Equal advising</span>
-                <span class="affiliation">
-                  <sup>1</sup>Princeton University, <sup>2</sup>Physical Intelligence
-                </span>
-                <div class="institution-logos">
-                  <img src="./images/logo/princeton.png" alt="Princeton University">
-                  <img src="./images/logo/irom.png" alt="IRoM Lab">
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -144,7 +155,7 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="./images/fig1_banner.png" alt="LAP Overview" style="max-width: 120%; width: 120%; height: auto;">
+            <img src="./images/fig1_banner.png" alt="LAP Overview" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
             We introduce Language-Action Pre-training (LAP), a general VLA pre-training recipe that represents low-level actions directly in natural language to supervise a vision-language backbone, and instantiate it as LAP-3B, the first VLA to demonstrate strong zero-shot transfer to novel embodiments. Compared to state-of-the-art VLAs, LAP-3B yields more stable training and favorable scaling behavior in cross-embodiment settings.
@@ -159,11 +170,11 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3" id="zeroshot">Zero-shot Cross-Embodiment Generalization</h2>
-          <div class="content has-text-justified">
+          <!-- <div class="content has-text-justified">
             <p>
               LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines. Error bars denote 95% statistically valid finite-sample confidence intervals.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -174,17 +185,17 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="./images/fig3_zeroshot.png" alt="Zero-shot cross-embodiment generalization performance" style="max-width: 110%; width: 110%; height: auto;">
+            <img src="./images/fig3_zeroshot.png" alt="Zero-shot cross-embodiment generalization performance" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
-            Zero-shot cross-embodiment generalization performance. LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines, while all open-sourced VLAs collapse to zero success rate.
+            LAP-3B matches the performance of pi0.5-DROID on the seen embodiment, while substantially outperforming prior VLAs in zero-shot transfer. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B achieves over 50% average zero-shot success, representing an approximately 2× improvement over the strongest baseline; in contrast, all other open-sourced VLAs fail entirely, collapsing to 0% success.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -192,7 +203,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="section" style="padding-top: 0;">
     <div class="container is-max-desktop">
@@ -215,15 +226,15 @@
             <div class="video-grid">
               <div class="video-card">
                 <p class="video-label">Pick and Place: Banana</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_banana.MOV"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Pour: Bowl</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_bowl.MOV"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Pick and Place: Marker</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_marker.MOV"></video>
               </div>
             </div>
           </div>
@@ -233,15 +244,15 @@
             <div class="video-grid">
               <div class="video-card">
                 <p class="video-label">Pick and Place: Carrot</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_carrot.MOV"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Pick and Place: Mug</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_mug.MOV"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Pick and Place: Toy</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_toy.MOV"></video>
               </div>
             </div>
           </div>
@@ -251,11 +262,11 @@
             <div class="video-grid two-col">
               <div class="video-card">
                 <p class="video-label">Pick and Place: Marker</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/marker.mov"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Put Towel</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/towel.mov"></video>
               </div>
             </div>
           </div>
@@ -265,11 +276,11 @@
             <div class="video-grid two-col">
               <div class="video-card">
                 <p class="video-label">Sort</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/sort_1.mov"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">Tissue</p>
-                <div class="video-placeholder">Video placeholder</div>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/tissue_2.mov"></video>
               </div>
             </div>
           </div>
@@ -285,7 +296,7 @@
           <h2 class="title is-3" id="comparison">Zero-shot Comparison</h2>
           <div class="content has-text-justified">
             <p>
-              Qualitative comparisons against strong open-sourced baselines under zero-shot embodiment transfer. We show representative rollouts for the same task across policies.
+              We compare LAP-3B against state-of-the-art open-sourced vision-language-action models—including pi0, pi0.5-DROID, X-VLA, and FAST—on the same tasks across multiple embodiments under zero-shot transfer. The qualitative rollouts demonstrate LAP-3B's superior ability to generalize to novel robots without any embodiment-specific fine-tuning, while baseline policies struggle or fail entirely on these unseen platforms.
             </p>
           </div>
         </div>
@@ -293,83 +304,75 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top: 0;">
+  <section class="section" style="margin-top: -2.0rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <h4 class="title is-5">DROID: Pour Bowl</h4>
-          <div class="video-grid five-col">
+          <div class="video-grid four-col">
             <div class="video-card">
-              <p class="video-label">FAST</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/xvla_bowl.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">LAP-3B</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">pi0.5-DROID ⚠️</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/pi05_droid_bowl.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">pi0.5-DROID</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/fast_bowl.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">pi0</p>
-              <div class="video-placeholder">Video placeholder</div>
-            </div>
-            <div class="video-card">
-              <p class="video-label">X-VLA</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/lap_bowl.MOV"></video>
             </div>
           </div>
 
           <h4 class="title is-5" style="margin-top: 2rem;">Custom Franka: Pick and Place Toy</h4>
-          <div class="video-grid five-col">
+          <div class="video-grid four-col">
             <div class="video-card">
-              <p class="video-label">FAST</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/xvla_toy.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">LAP-3B</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">pi0.5-DROID ❌</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/pi05_droid_toy.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">pi0.5-DROID</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/fast_toy.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">pi0</p>
-              <div class="video-placeholder">Video placeholder</div>
-            </div>
-            <div class="video-card">
-              <p class="video-label">X-VLA</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/lap_toy.MOV"></video>
             </div>
           </div>
 
           <h4 class="title is-5" style="margin-top: 2rem;">Kinova: Pick and Place Marker</h4>
           <div class="video-grid three-col">
             <div class="video-card">
-              <p class="video-label">LAP-3B</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">pi0.5-DROID ❌</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/pi05droid_marker.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">pi0.5-DROID</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/xvla_marker.MOV"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">X-VLA</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/lap_marker.mov"></video>
             </div>
           </div>
 
           <h4 class="title is-5" style="margin-top: 2rem;">YAM: Tissue</h4>
           <div class="video-grid two-col">
             <div class="video-card">
-              <p class="video-label">FAST</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/fast_tissue.mp4"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">LAP-3B</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/lap_tissue.mp4"></video>
             </div>
           </div>
         </div>
@@ -397,7 +400,7 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="./images/fig4_finetune.png" alt="Fine-tuning efficiency" style="max-width: 110%; width: 110%; height: auto;">
+            <img src="./images/fig4_finetune.png" alt="Fine-tuning efficiency" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
             Fine-tuning efficiency in simulation (LIBERO) and real-world manipulation tasks. Across both domains, LAP-3B adapts substantially faster than baseline policies, reaching high performance with significantly fewer epochs and demonstrations.
@@ -414,11 +417,11 @@
           <div class="video-grid two-col">
             <div class="video-card">
               <p class="video-label">YAM: Hang Tape on Rack</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <video autoplay muted controls loop src="./videos/sec3_finetune/yam_ft_tape_success.mp4"></video>
             </div>
             <div class="video-card">
               <p class="video-label">Franka: Fold Towel and Place in Basket</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <video autoplay muted controls loop src="./videos/sec3_finetune/franka_ft_towel_success_cropped.mp4"></video>
             </div>
           </div>
         </div>
@@ -426,7 +429,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="margin-top: -2.0rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -434,24 +437,21 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" style="padding-top: 0;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="video-grid three-col">
             <div class="video-card">
-              <p class="video-label">Carrot</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">Carrot 🥕</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/carrot.mov"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">Corn</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">Corn 🌽</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/corn.mov"></video>
             </div>
             <div class="video-card">
-              <p class="video-label">Grape</p>
-              <div class="video-placeholder">Video placeholder</div>
+              <p class="video-label" style="text-align: center;">Grape 🍇</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/grape.mov"></video>
             </div>
           </div>
         </div>
@@ -481,6 +481,12 @@
               </p>
             </div>
             <div class="analysis-card">
+              <img src="./images/fig13_tsne.png" alt="t-SNE representations">
+              <p class="figure-caption">
+                T-SNE visualizations of learned embodiment representations. LAP-3B exhibits substantial overlap between training and unseen embodiments, suggesting more transferable representations.
+              </p>
+            </div>
+            <div class="analysis-card">
               <img src="./images/fig8_cotrain.png" alt="VQA co-training">
               <p class="figure-caption">
                 VQA co-training with a motion-prediction task improves cross-embodiment performance.
@@ -490,12 +496,6 @@
               <img src="./images/fig7_modelscaling.png" alt="Model scaling">
               <p class="figure-caption">
                 Model scaling behavior of LAP compared to pi0.5-replicated. LAP improves consistently with scale, while the baseline saturates and degrades.
-              </p>
-            </div>
-            <div class="analysis-card">
-              <img src="./images/fig13_tsne.png" alt="t-SNE representations">
-              <p class="figure-caption">
-                T-SNE visualizations of learned embodiment representations. LAP-3B exhibits substantial overlap between training and unseen embodiments, suggesting more transferable representations.
               </p>
             </div>
           </div>
