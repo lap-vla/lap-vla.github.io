@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer">
+  <meta name="keywords"
+    content="LAP, Language-Action Pre-training, Vision-Language-Action, Robotics, Cross-Embodiment Transfer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="icon" href="./favicon.png" type="image/png" />
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+  <section class="teaser">
+    <div class="hero-header" style="background-color: #2a2a2a;">
+      <div class="hero-header-inner">
+        <div class="hero-header-content">
+          <h1 class="publication-title" style="max-width: 1020px; margin: 0 auto; font-size: clamp(28px, 4vw, 56px);">
+            LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-body" style="padding-top: 25px !important;">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="is-size-5 publication-authors">
+              <span class="author-block" style="margin-top: 13px;">
+                <div class="author-list" style="display: block; margin-left: auto; margin-right: auto; margin-top: 1rem; margin-bottom: 1rem; padding-left: 2rem; padding-right: 2rem; padding-top: 1.6rem; padding-bottom: 1.28rem; background-color: #F9F9F9; border-radius: 10px; line-height: 1.7; width: 100%; max-width: 933px; text-align: justify; font-size: 0.9rem; color: #4a4a4a; opacity: 1;">
+                  <h5 style="text-transform: uppercase; color: black; margin: 0 0 0.5rem; font-weight: bold;">Authors</h5>
+                  <p style="margin-bottom: 0.75rem; color: #797979;">
+                    Lihan Zha, Asher J. Hancock*, Mingtong Zhang*, Tenny Yin, Yixuan Huang, Dhruv Shah, Allen Z. Ren*, Anirudha Majumdar*
+                  </p>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              A long-standing goal in robotics is a generalist policy that can be deployed zero-shot on new robot embodiments without per-embodiment adaptation. We introduce Language-Action Pre-training (LAP), a simple recipe that represents low-level robot actions directly in natural language, aligning action supervision with the pre-trained vision-language model's input-output distribution. LAP requires no learned tokenizer, no costly annotation, and no embodiment-specific architectural design. Based on LAP, we present LAP-3B, which demonstrates substantial zero-shot transfer to previously unseen robot embodiments without any embodiment-specific fine-tuning. Across multiple novel robots and manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering roughly a 2x improvement over the strongest prior VLAs. We further show that LAP enables efficient adaptation and favorable scaling, while unifying action prediction and VQA in a shared language-action format that yields additional gains through co-training.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="margin-top: -2.0rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images/fig1_banner.png" alt="LAP Overview" style="max-width: 120%; width: 120%; height: auto;">
+          </div>
+          <p class="figure-caption" style="width: 95%;">
+            We introduce Language-Action Pre-training (LAP), a general VLA pre-training recipe that represents low-level actions directly in natural language to supervise a vision-language backbone, and instantiate it as LAP-3B, the first VLA to demonstrate strong zero-shot transfer to novel embodiments. Compared to state-of-the-art VLAs, LAP-3B yields more stable training and favorable scaling behavior in cross-embodiment settings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Zero-shot Cross-Embodiment Generalization</h2>
+          <div class="content has-text-justified">
+            <p>
+              LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines. Error bars denote 95% statistically valid finite-sample confidence intervals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="margin-top: -2.0rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images/fig3_zeroshot.png" alt="Zero-shot cross-embodiment generalization performance" style="max-width: 110%; width: 110%; height: auto;">
+          </div>
+          <p class="figure-caption" style="width: 95%;">
+            Zero-shot cross-embodiment generalization performance. LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines, while all open-sourced VLAs collapse to zero success rate.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">Zero-shot Rollouts (LAP-3B)</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="dropdown-row">
+            <div class="dropdown-group">
+              <span class="dropdown-label">Robot:</span>
+              <select id="zeroshot-robot-selection" class="dropdown-select" onchange="selectZeroShotRobot()">
+                <option value="droid">DROID</option>
+                <option value="franka">Custom Franka</option>
+                <option value="kinova">Kinova</option>
+                <option value="yam">YAM</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="zeroshot-droid" class="zeroshot-robot-section">
+            <h4 class="title is-5">DROID</h4>
+            <div class="video-grid">
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Banana</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Pour: Bowl</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Marker</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="zeroshot-franka" class="zeroshot-robot-section" style="display: none;">
+            <h4 class="title is-5">Custom Franka</h4>
+            <div class="video-grid">
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Carrot</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Mug</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Toy</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="zeroshot-kinova" class="zeroshot-robot-section" style="display: none;">
+            <h4 class="title is-5">Kinova</h4>
+            <div class="video-grid two-col">
+              <div class="video-card">
+                <p class="video-label">Pick and Place: Marker</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Put Towel</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="zeroshot-yam" class="zeroshot-robot-section" style="display: none;">
+            <h4 class="title is-5">YAM</h4>
+            <div class="video-grid two-col">
+              <div class="video-card">
+                <p class="video-label">Sort</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+              <div class="video-card">
+                <p class="video-label">Tissue</p>
+                <div class="video-placeholder">Video placeholder</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Zero-shot Comparison</h2>
+          <div class="content has-text-justified">
+            <p>
+              Qualitative comparisons against strong open-sourced baselines under zero-shot embodiment transfer. We show representative rollouts for the same task across policies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h4 class="title is-5">DROID: Pour Bowl</h4>
+          <div class="video-grid five-col">
+            <div class="video-card">
+              <p class="video-label">FAST</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">LAP-3B</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">pi0.5-DROID</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">pi0</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">X-VLA</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+
+          <h4 class="title is-5" style="margin-top: 2rem;">Custom Franka: Pick and Place Toy</h4>
+          <div class="video-grid five-col">
+            <div class="video-card">
+              <p class="video-label">FAST</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">LAP-3B</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">pi0.5-DROID</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">pi0</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">X-VLA</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+
+          <h4 class="title is-5" style="margin-top: 2rem;">Kinova: Pick and Place Marker</h4>
+          <div class="video-grid three-col">
+            <div class="video-card">
+              <p class="video-label">LAP-3B</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">pi0.5-DROID</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">X-VLA</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+
+          <h4 class="title is-5" style="margin-top: 2rem;">YAM: Tissue</h4>
+          <div class="video-grid two-col">
+            <div class="video-card">
+              <p class="video-label">FAST</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">LAP-3B</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Fine-tuning Efficiency</h2>
+          <div class="content has-text-justified">
+            <p>
+              Across both simulation and real-world manipulation tasks, LAP-3B adapts substantially faster than baselines, reaching high performance with significantly fewer epochs and demonstrations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="margin-top: -2.0rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images/fig4_finetune.png" alt="Fine-tuning efficiency" style="max-width: 110%; width: 110%; height: auto;">
+          </div>
+          <p class="figure-caption" style="width: 95%;">
+            Fine-tuning efficiency in simulation (LIBERO) and real-world manipulation tasks. Across both domains, LAP-3B adapts substantially faster than baseline policies, reaching high performance with significantly fewer epochs and demonstrations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="video-grid two-col">
+            <div class="video-card">
+              <p class="video-label">YAM: Hang Tape on Rack</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">Franka: Fold Towel and Place in Basket</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Language Following</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="video-grid three-col">
+            <div class="video-card">
+              <p class="video-label">Carrot</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">Corn</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+            <div class="video-card">
+              <p class="video-label">Grape</p>
+              <div class="video-placeholder">Video placeholder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Analysis</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="margin-top: -2.0rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="analysis-grid">
+            <div class="analysis-card">
+              <img src="./images/fig5_pretrain.png" alt="Action prediction error during pre-training">
+              <p class="figure-caption">
+                Action prediction error on unseen embodiments during pre-training. LAP-3B achieves consistently lower MSE error and smoother convergence than baselines.
+              </p>
+            </div>
+            <div class="analysis-card">
+              <img src="./images/fig8_cotrain.png" alt="VQA co-training">
+              <p class="figure-caption">
+                VQA co-training with a motion-prediction task improves cross-embodiment performance.
+              </p>
+            </div>
+            <div class="analysis-card">
+              <img src="./images/fig7_modelscaling.png" alt="Model scaling">
+              <p class="figure-caption">
+                Model scaling behavior of LAP compared to pi0.5-replicated. LAP improves consistently with scale, while the baseline saturates and degrades.
+              </p>
+            </div>
+            <div class="analysis-card">
+              <img src="./images/fig13_tsne.png" alt="t-SNE representations">
+              <p class="figure-caption">
+                T-SNE visualizations of learned embodiment representations. LAP-3B exhibits substantial overlap between training and unseen embodiments, suggesting more transferable representations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function selectZeroShotRobot() {
+      var selected = document.getElementById('zeroshot-robot-selection').value;
+      var sections = document.querySelectorAll('.zeroshot-robot-section');
+      sections.forEach(function (section) {
+        section.style.display = 'none';
+      });
+      var active = document.getElementById('zeroshot-' + selected);
+      if (active) {
+        active.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+
+</html>
