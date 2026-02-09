@@ -224,7 +224,7 @@ li {
 .authors {
   text-align: center;
   font-family: 'Space Grotesk', -apple-system, sans-serif;
-  font-size: 15px;
+  font-size: 19px;
   color: #4a4a4a;
   line-height: 2;
   margin-top: 0rem;
@@ -295,14 +295,14 @@ li {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 1.25rem;
+  margin-top: 0.25rem;
   flex-wrap: wrap;
 }
 
 .publication-links .button {
   font-family: 'Apple SD Gothic Neo', 'Google Sans', sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   transition: all 0.2s ease;
 }
 
