@@ -644,6 +644,7 @@
         video.defaultMuted = true;
         video.volume = 0;
         video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
 
         if (!video.dataset.muteLocked) {
           video.addEventListener('volumechange', () => {
@@ -655,6 +656,34 @@
           });
           video.dataset.muteLocked = 'true';
         }
+      };
+
+      const getVideoSourcePath = (video) => {
+        const directSrc = video.getAttribute('src') || video.getAttribute('data-src');
+        if (directSrc) return directSrc;
+
+        const sourceNode = video.querySelector('source[src], source[data-src]');
+        if (!sourceNode) return '';
+        return sourceNode.getAttribute('src') || sourceNode.getAttribute('data-src') || '';
+      };
+
+      const getPosterPath = (videoPath) => {
+        if (!videoPath) return '';
+        return videoPath
+          .replace(/^\.?\/?videos\//, './images/video_posters/')
+          .replace(/\.mp4$/i, '.jpg');
+      };
+
+      const setVideoLoadingState = (video) => {
+        video.classList.add('is-loading');
+
+        const clearState = () => {
+          video.classList.remove('is-loading');
+        };
+
+        video.addEventListener('loadeddata', clearState, { once: true });
+        video.addEventListener('canplay', clearState, { once: true });
+        video.addEventListener('error', clearState, { once: true });
       };
 
       const initializeVideoLoading = () => {
@@ -683,6 +712,12 @@
 
         videos.forEach(video => {
           enforceVideoMute(video);
+          setVideoLoadingState(video);
+
+          const sourcePath = getVideoSourcePath(video);
+          if (!video.getAttribute('poster') && sourcePath) {
+            video.setAttribute('poster', getPosterPath(sourcePath));
+          }
 
           const isTeaserVideo = video.closest('.teaser') !== null;
           if (isTeaserVideo) {
