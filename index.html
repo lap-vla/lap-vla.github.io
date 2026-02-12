@@ -20,6 +20,17 @@
   <link rel="stylesheet" href="./css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <script defer src="./js/fontawesome.all.min.js"></script>
   <script src="./js/bulma-carousel.min.js"></script>
   <script src="./js/bulma-slider.min.js"></script>
@@ -34,7 +45,7 @@
       <div class="progress-item" data-section="hero">
         <a href="#">
           <span class="progress-dot"></span>
-          <span class="progress-label">Intro</span>
+          <span class="progress-label">Overview</span>
         </a>
       </div>
       <div class="progress-item" data-section="zeroshot">
@@ -43,28 +54,23 @@
           <span class="progress-label">Zero-shot</span>
         </a>
       </div>
-      <div class="progress-item" data-section="comparison">
-        <a href="#comparison">
-          <span class="progress-dot"></span>
-          <span class="progress-label">Comparison</span>
-        </a>
-      </div>
       <div class="progress-item" data-section="finetuning">
         <a href="#finetuning">
           <span class="progress-dot"></span>
           <span class="progress-label">Fine-tuning</span>
         </a>
       </div>
-      <div class="progress-item" data-section="language">
-        <a href="#language">
-          <span class="progress-dot"></span>
-          <span class="progress-label">Language</span>
-        </a>
-      </div>
       <div class="progress-item" data-section="analysis">
         <a href="#analysis">
           <span class="progress-dot"></span>
           <span class="progress-label">Analysis</span>
+        </a>
+      </div>
+
+      <div class="progress-item" data-section="benefits">
+        <a href="#benefits">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Beyond Cross-Embodiment</span>
         </a>
       </div>
     </div>
@@ -77,16 +83,16 @@
           <h1 class="publication-title" style="max-width: 1020px; margin: 0 auto; font-size: clamp(26.6px, 3.8vw, 53.2px); line-height: 1.2;">
             LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer
           </h1>
-          <div class="authors" style="margin: 0 auto 5px auto;">
-            <a href="#" target="_blank">Lihan Zha</a><sup>1</sup>,
-            <a href="#" target="_blank">Asher J. Hancock</a><sup>1</sup>*,
-            <a href="#" target="_blank">Mingtong Zhang</a><sup>1</sup>*,
-            <a href="#" target="_blank">Tenny Yin</a><sup>1</sup>,
-            <a href="#" target="_blank">Yixuan Huang</a><sup>1</sup>,<br>
-            <a href="#" target="_blank">Dhruv Shah</a><sup>1</sup>,
-            <a href="#" target="_blank">Allen Z. Ren</a><sup>2</sup><span style="font-size: 0.75em; vertical-align: super;">&dagger;</span>,
-            <a href="#" target="_blank">Anirudha Majumdar</a><sup>1</sup><span style="font-size: 0.75em; vertical-align: super;">&dagger;</span>
-            <span class="author-note">*Equal contribution, <span style="font-size: 0.85em;">&dagger;</span>Equal advising</span>
+          <div class="authors" style="margin: 0 auto 15px auto;">
+            <a href="https://lihzha.github.io/" target="_blank">Lihan Zha</a><sup>1</sup>,
+            <a href="https://aasherh.github.io/" target="_blank">Asher J. Hancock</a><sup>1</sup>*,
+            <a href="https://robo-alex.github.io/" target="_blank">Mingtong Zhang</a><sup>1</sup>*,
+            <a href="https://tenny-yinyijun.github.io/" target="_blank">Tenny Yin</a><sup>1</sup>,
+            <a href="https://yixuanhuang98.github.io/" target="_blank">Yixuan Huang</a><sup>1</sup>,<br>
+            <a href="https://robodhruv.github.io/" target="_blank">Dhruv Shah</a><sup>1</sup>,
+            <a href="https://allenzren.github.io/" target="_blank">Allen Z. Ren</a><sup>2</sup><sup>&dagger;</sup>,
+            <a href="https://irom-lab.princeton.edu/majumdar" target="_blank">Anirudha Majumdar</a><sup>1</sup><sup>&dagger;</sup>
+            <span class="author-note">*Equal contribution, <sup>&dagger;</sup>Equal advising</span>
             <span class="affiliation">
               <sup>1</sup>Princeton University, <sup>2</sup>Physical Intelligence
             </span>
@@ -96,11 +102,11 @@
               <span class="icon"><i class="ai ai-arxiv"></i></span>
               <span>arXiv</span>
             </a>
-            <a class="button is-rounded" href="#" target="_blank">
+            <a class="button is-rounded" href="https://github.com/lihzha/lap" target="_blank">
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code</span>
             </a>
-            <a class="button is-rounded" href="#" target="_blank">
+            <a class="button is-rounded" href="https://huggingface.co/collections/lihzha/lap" target="_blank">
               <span class="icon"><i class="fas fa-download"></i></span>
               <span>Checkpoints</span>
             </a>
@@ -142,9 +148,9 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-justified">
-            <p>
+            <!-- <p>
               A long-standing goal in robotics is a generalist policy that can be deployed zero-shot on new robot embodiments without per-embodiment adaptation. We introduce Language-Action Pre-training (LAP), a simple recipe that represents low-level robot actions directly in natural language, aligning action supervision with the pre-trained vision-language model's input-output distribution. LAP requires no learned tokenizer, no costly annotation, and no embodiment-specific architectural design. Based on LAP, we present LAP-3B, which demonstrates substantial zero-shot transfer to previously unseen robot embodiments without any embodiment-specific fine-tuning. Across multiple novel robots and manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering roughly a 2x improvement over the strongest prior VLAs. We further show that LAP enables efficient adaptation and favorable scaling, while unifying action prediction and VQA in a shared language-action format that yields additional gains through co-training.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -159,7 +165,7 @@
             <img src="./images/fig1_banner.png" alt="LAP Overview" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
-            We introduce Language-Action Pre-training (LAP), a general VLA pre-training recipe that represents low-level actions directly in natural language to supervise a vision-language backbone, and instantiate it as LAP-3B, the first VLA to demonstrate strong zero-shot transfer to novel embodiments. Compared to state-of-the-art VLAs, LAP-3B yields more stable training and favorable scaling behavior in cross-embodiment settings.
+            We introduce Language-Action Pre-training (LAP), a general VLA pre-training recipe that represents low-level actions in natural language to supervise a vision-language backbone, unifying action learning and VQA. We instantiate this approach as LAP-3B, the first VLA to demonstrate strong zero-shot transfer to novel embodiments. Compared to state-of-the-art VLAs, LAP-3B learns more generalizable embodiment representations and exhibits favorable scaling behavior.
           </p>
         </div>
       </div>
@@ -173,7 +179,7 @@
           <h2 class="title is-3" id="zeroshot">Zero-shot Cross-Embodiment Generalization</h2>
           <!-- <div class="content has-text-justified">
             <p>
-              LAP-3B achieves performance comparable to pi0.5-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines. Error bars denote 95% statistically valid finite-sample confidence intervals.
+              LAP-3B achieves performance comparable to \(\pi_{0.5}\)-DROID on the seen embodiment. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering approximately a 2x improvement over the strongest baselines. Error bars denote 95% statistically valid finite-sample confidence intervals.
             </p>
           </div> -->
         </div>
@@ -189,7 +195,10 @@
             <img src="./images/fig3_zeroshot.png" alt="Zero-shot cross-embodiment generalization performance" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
-            LAP-3B matches the performance of pi0.5-DROID on the seen embodiment, while substantially outperforming prior VLAs in zero-shot transfer. Across three previously unseen embodiments and six real-world manipulation tasks, LAP-3B achieves over 50% average zero-shot success, representing an approximately 2× improvement over the strongest baseline; in contrast, all other open-sourced VLAs fail entirely, collapsing to 0% success.
+            <strong>LAP-3B achieves over 50% average success when deployed zero-shot on previously unseen robot embodiments</strong>,
+            delivering roughly a <strong>2x improvement</strong> over the strongest prior baseline.
+            In contrast, all other open-source VLAs fail to transfer, collapsing to <strong>0% success</strong>
+            under the same evaluation.
           </p>
         </div>
       </div>
@@ -210,94 +219,91 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <div class="dropdown-row">
-            <div class="dropdown-group">
-              <span class="dropdown-label">Robot:</span>
-              <select id="zeroshot-robot-selection" class="dropdown-select" onchange="selectZeroShotRobot()">
-                <option value="droid">DROID</option>
-                <option value="franka">Custom Franka</option>
-                <option value="kinova">Kinova</option>
-                <option value="yam">YAM</option>
-              </select>
-            </div>
-          </div>
 
-          <div id="zeroshot-droid" class="zeroshot-robot-section">
-            <h4 class="title is-5">DROID</h4>
-            <div class="video-grid">
+          <div id="zeroshot-yam" class="zeroshot-robot-section">
+            <h4 class="title is-5">YAM</h4>
+            <div class="video-grid three-col">
               <div class="video-card">
-                <p class="video-label">Pick and Place: Banana</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_banana.MOV"></video>
+                <p class="video-label">"Sort things into the basket"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_sort_success_2x.mp4"></video>
               </div>
               <div class="video-card">
-                <p class="video-label">Pour: Bowl</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_bowl.MOV"></video>
+                <p class="video-label">"Take out a tissue and put it on table"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_tissue_success_2x.mp4"></video>
               </div>
               <div class="video-card">
-                <p class="video-label">Pick and Place: Marker</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_marker.MOV"></video>
+                <p class="video-label">"Cover the carrot with towel"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_cover_4x.mp4"></video>
               </div>
             </div>
           </div>
 
-          <div id="zeroshot-franka" class="zeroshot-robot-section" style="display: none;">
+
+          <div id="zeroshot-kinova" class="zeroshot-robot-section">
+            <h4 class="title is-5">Kinova</h4>
+            <div class="video-grid three-col">
+              <div class="video-card">
+                <p class="video-label">"Put towel into the basket"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/kinova_towel_success_1x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label">"Put carrot into the basket"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/carrot_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label">"Put marker into the bowl"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/kinova_marker_success_4x.mp4"></video>
+              </div>
+            </div>
+          </div>
+          <div id="zeroshot-franka" class="zeroshot-robot-section">
             <h4 class="title is-5">Custom Franka</h4>
             <div class="video-grid">
               <div class="video-card">
-                <p class="video-label">Pick and Place: Carrot</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_carrot.MOV"></video>
+                <p class="video-label">"Sort things into the basket"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_sort_success_cropped_1x.mp4"></video>
               </div>
               <div class="video-card">
-                <p class="video-label">Pick and Place: Mug</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_mug.MOV"></video>
+                <p class="video-label">"Put the mug into the basket"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_mug_success_cropped_1x.mp4"></video>
               </div>
               <div class="video-card">
-                <p class="video-label">Pick and Place: Toy</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/lap_toy.MOV"></video>
+                <p class="video-label">"Put carrot into the bowl"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_carrot_success_cropped_4x.mp4"></video>
+              </div>
+            </div>
+          </div>
+          <div id="zeroshot-droid" class="zeroshot-robot-section">
+            <h4 class="title is-5">DROID (Seen)</h4>
+            <div class="video-grid">
+              <div class="video-card">
+                <p class="video-label">"Put marker into the cup"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_marker_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label">"Pour things onto the table"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_bowl_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label">"Put banana on the pan"</p>
+                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_banana_2x.mp4"></video>
               </div>
             </div>
           </div>
 
-          <div id="zeroshot-kinova" class="zeroshot-robot-section" style="display: none;">
-            <h4 class="title is-5">Kinova</h4>
-            <div class="video-grid two-col">
-              <div class="video-card">
-                <p class="video-label">Pick and Place: Marker</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/marker.mov"></video>
-              </div>
-              <div class="video-card">
-                <p class="video-label">Put Towel</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/towel.mov"></video>
-              </div>
-            </div>
-          </div>
-
-          <div id="zeroshot-yam" class="zeroshot-robot-section" style="display: none;">
-            <h4 class="title is-5">YAM</h4>
-            <div class="video-grid two-col">
-              <div class="video-card">
-                <p class="video-label">Sort</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/sort_1.mov"></video>
-              </div>
-              <div class="video-card">
-                <p class="video-label">Tissue</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/tissue_2.mov"></video>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="margin-top: -3rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" id="comparison">Zero-shot Comparison</h2>
+          <!-- <h3 class="title is-4" id="comparison">Zero-Shot Comparison</h3> -->
           <div class="content has-text-justified">
             <p>
-              We compare LAP-3B against state-of-the-art open-sourced vision-language-action models—including pi0, pi0.5-DROID, X-VLA, and FAST—on the same tasks across multiple embodiments under zero-shot transfer. The qualitative rollouts demonstrate LAP-3B's superior ability to generalize to novel robots without any embodiment-specific fine-tuning, while baseline policies struggle or fail entirely on these unseen platforms.
+              We further compare LAP-3B against state-of-the-art open-sourced vision-language-action models—including \(\pi_0\), \(\pi_{0.5}\)-DROID, X-VLA, and \(\pi_{0.5}\)-replicated—on the same tasks across multiple embodiments under zero-shot transfer. The qualitative rollouts demonstrate LAP-3B's superior ability to generalize to novel robots without any embodiment-specific fine-tuning, while baseline policies struggle or fail entirely on these unseen platforms.
             </p>
           </div>
         </div>
@@ -309,71 +315,95 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <h4 class="title is-5">DROID: Pour Bowl</h4>
-          <div class="video-grid four-col">
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/xvla_bowl.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">pi0.5-DROID ⚠️</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/pi05_droid_bowl.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/fast_bowl.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/lap_bowl.MOV"></video>
+          <div class="dropdown-row">
+            <div class="dropdown-group">
+              <span class="dropdown-label">Comparison:</span>
+              <select id="comparison-selection" class="dropdown-select" onchange="selectComparison()">
+                <option value="franka" selected>Custom Franka</option>
+                <option value="yam">YAM</option>
+                <option value="kinova">Kinova</option>
+                <option value="droid">DROID</option>
+              </select>
             </div>
           </div>
 
-          <h4 class="title is-5" style="margin-top: 2rem;">Custom Franka: Pick and Place Toy</h4>
-          <div class="video-grid four-col">
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/xvla_toy.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">pi0.5-DROID ❌</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/pi05_droid_toy.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/fast_toy.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/lap_toy.MOV"></video>
-            </div>
-          </div>
-
-          <h4 class="title is-5" style="margin-top: 2rem;">Kinova: Pick and Place Marker</h4>
-          <div class="video-grid three-col">
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">pi0.5-DROID ❌</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/pi05droid_marker.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/xvla_marker.MOV"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/lap_marker.mov"></video>
+          <div id="comparison-franka" class="comparison-section">
+            <h4 class="title is-5" style="margin-top: 2rem;">Custom Franka: Sort</h4>
+            <div class="video-grid four-col">
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/xvla_toy_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ❌</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/pi05_droid_toy_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/fast_toy_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/lap_toy_2x.mp4"></video>
+              </div>
             </div>
           </div>
 
-          <h4 class="title is-5" style="margin-top: 2rem;">YAM: Tissue</h4>
-          <div class="video-grid two-col">
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">FAST ⚠️</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/fast_tissue.mp4"></video>
+          <div id="comparison-yam" class="comparison-section" style="display: none;">
+            <h4 class="title is-5" style="margin-top: 2rem;">YAM: Tissue</h4>
+            <div class="video-grid three-col">
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0}\)-replicated ⚠️</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/pi0_tissue_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/tissue_fail_pi05_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/lap_tissue_2x.mp4"></video>
+              </div>
             </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-              <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/lap_tissue.mp4"></video>
+          </div>
+
+          <div id="comparison-kinova" class="comparison-section" style="display: none;">
+            <h4 class="title is-5" style="margin-top: 2rem;">Kinova: Marker</h4>
+            <div class="video-grid three-col">
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/xvla_marker_4x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ❌</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/pi05droid_marker_4x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/lap_marker_4x.mp4"></video>
+              </div>
+            </div>
+          </div>
+
+          <div id="comparison-droid" class="comparison-section" style="display: none;">
+            <h4 class="title is-5">DROID: Pour</h4>
+            <div class="video-grid four-col">
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">X-VLA ❌</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/xvla_bowl_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ⚠️</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/pi05_droid_bowl_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/fast_bowl_2x.mp4"></video>
+              </div>
+              <div class="video-card">
+                <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
+                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/lap_bowl_2x.mp4"></video>
+              </div>
             </div>
           </div>
         </div>
@@ -385,11 +415,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" id="finetuning">Fine-tuning Efficiency</h2>
+          <h2 class="title is-3" id="finetuning">Superior Fine-tuning Efficiency</h2>
           <div class="content has-text-justified">
-            <p>
+            <!-- <p>
               Across both simulation and real-world manipulation tasks, LAP-3B adapts substantially faster than baselines, reaching high performance with significantly fewer epochs and demonstrations.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -404,7 +434,7 @@
             <img src="./images/fig4_finetune.png" alt="Fine-tuning efficiency" style="max-width: 100%; width: 100%; height: auto;">
           </div>
           <p class="figure-caption" style="width: 95%;">
-            Fine-tuning efficiency in simulation (LIBERO) and real-world manipulation tasks. Across both domains, LAP-3B adapts substantially faster than baseline policies, reaching high performance with significantly fewer epochs and demonstrations.
+            LAP-3B fine-tunes more efficiently than baseline policies across both the LIBERO benchmark and real-world manipulation. On LIBERO, <span class="smallcaps">LAP-3B</span> reaches near-optimal success with only a fraction of the training steps required by prior methods. On real robots, it achieves comparable performance using approximately <strong>2.5x fewer demonstrations</strong>, demonstrating substantially improved data and compute efficiency when transferring to new embodiments.
           </p>
         </div>
       </div>
@@ -418,41 +448,11 @@
           <div class="video-grid two-col">
             <div class="video-card">
               <p class="video-label">YAM: Hang Tape on Rack</p>
-              <video autoplay muted controls loop src="./videos/sec3_finetune/yam_ft_tape_success.mp4"></video>
+              <video autoplay muted controls loop src="./videos/sec3_finetune/yam_ft_tape_success_1x.mp4"></video>
             </div>
             <div class="video-card">
               <p class="video-label">Franka: Fold Towel and Place in Basket</p>
-              <video autoplay muted controls loop src="./videos/sec3_finetune/franka_ft_towel_success_cropped.mp4"></video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="margin-top: -2.0rem;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" id="language">Language Following</h2>
-        </div>
-      </div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <div class="video-grid three-col">
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">Carrot 🥕</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/carrot.mov"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">Corn 🌽</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/corn.mov"></video>
-            </div>
-            <div class="video-card">
-              <p class="video-label" style="text-align: center;">Grape 🍇</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/grape.mov"></video>
+              <video autoplay muted controls loop src="./videos/sec3_finetune/franka_ft_towel_success_cropped_2x.mp4"></video>
             </div>
           </div>
         </div>
@@ -464,7 +464,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" id="analysis">Analysis</h2>
+          <h2 class="title is-3" id="analysis">Analysis of LAP's Cross-Embodiment Generalization</h2>
         </div>
       </div>
     </div>
@@ -474,36 +474,90 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <div class="analysis-grid">
-            <div class="analysis-card">
-              <img src="./images/fig5_pretrain.png" alt="Action prediction error during pre-training">
-              <p class="figure-caption">
-                Action prediction error on unseen embodiments during pre-training. LAP-3B achieves consistently lower MSE error and smoother convergence than baselines.
-              </p>
-            </div>
-            <div class="analysis-card">
-              <img src="./images/fig13_tsne.png" alt="t-SNE representations">
-              <p class="figure-caption">
-                T-SNE visualizations of learned embodiment representations. LAP-3B exhibits substantial overlap between training and unseen embodiments, suggesting more transferable representations.
-              </p>
-            </div>
-            <div class="analysis-card">
-              <img src="./images/fig8_cotrain.png" alt="VQA co-training">
-              <p class="figure-caption">
-                VQA co-training with a motion-prediction task improves cross-embodiment performance.
-              </p>
-            </div>
-            <div class="analysis-card">
-              <img src="./images/fig7_modelscaling.png" alt="Model scaling">
-              <p class="figure-caption">
-                Model scaling behavior of LAP compared to pi0.5-replicated. LAP improves consistently with scale, while the baseline saturates and degrades.
-              </p>
-            </div>
+          <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images/fig5_analysis.png" alt="Why LAP enables cross-embodiment generalization" style="max-width: 100%; width: 100%; height: auto;">
           </div>
+          <p class="figure-caption" style="width: 95%; text-align: left;">
+            <strong>Left: T-SNE visualizations of learned embodiment representations</strong> for <span class="smallcaps">LAP-3B</span> and \(\pi_{0.5}\)-replicated. <span class="smallcaps">LAP-3B</span> exhibits substantial overlap between training and unseen embodiments, whereas \(\pi_{0.5}\)-replicated shows limited alignment, indicating that <span class="smallcaps">LAP-3B</span> learns more transferable, embodiment-agnostic control representations.
+          </p>
+          <p class="figure-caption" style="width: 95%; text-align: left;">
+            <strong>Right: Action prediction error on unseen embodiments during pre-training.</strong> <span class="smallcaps">LAP-3B</span> achieves consistently lower action prediction error on held-out unseen embodiments throughout training, compared to \(\pi_{0.5}\)-replicated and \(\pi_{0}\)-replicated baselines. This indicates that language-action supervision enables the model to learn control representations that generalize across embodiments, allowing more accurate action prediction on novel robots as well as smoother training dynamics.
+          </p>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="section" style="margin-top: 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" id="benefits">Beyond Cross-Embodiment: Additional Benefits of LAP</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              <strong>Enhanced language following ability.</strong> While our primary focus is cross-embodiment generalization, we also demonstrate strong language-following capability by pre-training with language-actions. In cluttered scenes with multiple objects, the policy correctly identifies the instructed target and reliably completes the task.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="video-grid three-col">
+            <div class="video-card">
+              <p class="video-label" style="text-align: center;">Carrot 🥕</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/carrot_2x.mp4"></video>
+            </div>
+            <div class="video-card">
+              <p class="video-label" style="text-align: center;">Corn 🌽</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/corn_1x.mp4"></video>
+            </div>
+            <div class="video-card">
+              <p class="video-label" style="text-align: center;">Grape 🍇</p>
+              <video autoplay muted controls loop src="./videos/sec4_language_following/grape_4x.mp4"></video>
+            </div>
+          </div>
+          <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images/fig6_benefits.png" alt="Additional benefits of LAP" style="max-width: 100%; width: 100%; height: auto;">
+          </div>
+          <p class="figure-caption" style="width: 95%; text-align: left;">
+            <strong>Left: Better alignment with VQA co-training.</strong>
+            Because language-actions share the same natural-language output space as standard VQA tasks, LAP enables seamless co-training with vision-language objectives. We introduce a motion-prediction task where the model describes the robot's movement between two frames using a language-action. This unified interface leads to more precise action generation and stronger spatial generalization across embodiments.
+          </p>
+          <p class="figure-caption" style="width: 95%; text-align: left;">
+            <strong>Right: Favorable scaling with model size.</strong>
+            LAP improves consistently as model capacity increases. Scaling from 4B to 27B parameters reduces both token and action validation losses, while comparable baselines saturate or degrade. These results demonstrate stable large-model scaling and increasing performance gains from additional capacity under language-action supervision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="title is-3 has-text-centered" id="bibtex">BibTeX</h2>
+  <div class="bibtex-code">
+    <div class="bibtex-title">Reference</div>
+    <pre><code>@misc{zha2026lap,
+  title={LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer},
+  author={Lihan Zha and Asher J. Hancock and Mingtong Zhang and Tenny Yin and Yixuan Huang and Dhruv Shah and Allen Z. Ren and Anirudha Majumdar},
+  year={2026},
+  eprint={XXXX.XXXXX},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/XXXX.XXXXX},
+}</code></pre>
+  </div>
+
+  <p class="bibtex-footnote">
+    This website is based on the <a href="https://github.com/polaris-evals/polaris-evals.github.io" target="_blank">PolaRiS template</a>.
+  </p>
+
 
   <script>
     // Progress Sidebar
@@ -562,20 +616,49 @@
         });
       };
 
+      const getVideoSpeedLabel = (videoSrc) => {
+        if (!videoSrc) return '1x';
+        const fileName = videoSrc.split('/').pop() || '';
+        const baseName = fileName.split('.')[0] || '';
+        const parts = baseName.split('_');
+        const suffix = parts[parts.length - 1] || '';
+        const match = suffix.match(/^(\d+)x$/i);
+        return match ? `${match[1]}x` : '1x';
+      };
+
+      const addVideoSpeedBadges = () => {
+        const videos = document.querySelectorAll('.video-card video');
+        videos.forEach(video => {
+          if (video.parentElement && video.parentElement.classList.contains('video-with-speed')) {
+            return;
+          }
+          const wrapper = document.createElement('div');
+          wrapper.className = 'video-with-speed';
+          video.parentNode.insertBefore(wrapper, video);
+          wrapper.appendChild(video);
+
+          const badge = document.createElement('span');
+          badge.className = 'video-speed-badge';
+          badge.textContent = getVideoSpeedLabel(video.getAttribute('src'));
+          wrapper.appendChild(badge);
+        });
+      };
+
+      addVideoSpeedBadges();
       window.addEventListener('scroll', updateProgress, { passive: true });
       updateProgress();
     });
 
-    function selectZeroShotRobot() {
-      var selected = document.getElementById('zeroshot-robot-selection').value;
-      var sections = document.querySelectorAll('.zeroshot-robot-section');
+    function selectComparison() {
+      var selected = document.getElementById('comparison-selection').value;
+      var sections = document.querySelectorAll('.comparison-section');
       sections.forEach(function (section) {
         section.style.display = 'none';
       });
-      var active = document.getElementById('zeroshot-' + selected);
+      var active = document.getElementById('comparison-' + selected);
       if (active) {
         active.style.display = 'block';
-      }
+      } 
     }
   </script>
 </body>

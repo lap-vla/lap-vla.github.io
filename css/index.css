@@ -224,7 +224,7 @@ li {
 .authors {
   text-align: center;
   font-family: 'Space Grotesk', -apple-system, sans-serif;
-  font-size: 19px;
+  font-size: 16px;
   color: #4a4a4a;
   line-height: 2;
   margin-top: 0rem;
@@ -269,6 +269,11 @@ li {
 .authors .affiliation sup {
   font-size: 9px;
   margin-right: 2px;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
 }
 
 .institution-logos {
@@ -895,13 +900,52 @@ li {
 
 /* Figure caption styling */
 .figure-caption {
-  font-style: italic;
+  font-style: normal;
   margin-top: 0.5rem;
-  text-align: center;
+  text-align: justify !important;
   color: #4a4a4a;
   /* Dark gray instead of black */
   margin-left: auto;
   margin-right: auto;
+}
+
+/* BibTeX block */
+.bibtex-code {
+  max-width: 980px;
+  width: min(92%, 980px);
+  margin: 0 auto 0.9rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: #e9e9e9;
+}
+
+.bibtex-code pre {
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: transparent;
+  padding: 0;
+}
+
+.bibtex-code code {
+  display: block;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.bibtex-title {
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  color: #363636;
+}
+
+.bibtex-footnote {
+  max-width: 980px;
+  width: min(92%, 980px);
+  margin: 0 auto 2.2rem;
+  font-size: 0.92rem;
+  opacity: 0.75;
 }
 
 #toggle-text {
@@ -966,6 +1010,26 @@ li {
   width: 100%;
   border-radius: 0.75rem;
   box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1);
+}
+
+.video-with-speed {
+  position: relative;
+  width: 100%;
+}
+
+.video-speed-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.7rem;
+  z-index: 2;
+  padding: 0;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.85), 0 0 4px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
 }
 
 .video-placeholder {
