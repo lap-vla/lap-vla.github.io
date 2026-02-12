@@ -98,7 +98,7 @@
             </span>
           </div>
           <div class="publication-links header-links">
-            <a class="button is-rounded" href="#" target="_blank">
+            <a class="button is-rounded" href="https://arxiv.org/abs/2602.10556" target="_blank">
               <span class="icon"><i class="ai ai-arxiv"></i></span>
               <span>arXiv</span>
             </a>
@@ -148,6 +148,13 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-justified">
+            <video autoplay muted controls loop playsinline style="width: 100%; height: auto; border-radius: 12px;">
+              <source src="./videos/teaser.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p class="figure-caption" style="width: 95%; margin: 0.9rem auto 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.45;">
+              We introduce LAP-3B, the first VLA that achive substantial <strong>zero-shot generalization</strong> to unseen embodiments.
+            </p>
             <!-- <p>
               A long-standing goal in robotics is a generalist policy that can be deployed zero-shot on new robot embodiments without per-embodiment adaptation. We introduce Language-Action Pre-training (LAP), a simple recipe that represents low-level robot actions directly in natural language, aligning action supervision with the pre-trained vision-language model's input-output distribution. LAP requires no learned tokenizer, no costly annotation, and no embodiment-specific architectural design. Based on LAP, we present LAP-3B, which demonstrates substantial zero-shot transfer to previously unseen robot embodiments without any embodiment-specific fine-tuning. Across multiple novel robots and manipulation tasks, LAP-3B attains over 50% average zero-shot success, delivering roughly a 2x improvement over the strongest prior VLAs. We further show that LAP enables efficient adaptation and favorable scaling, while unifying action prediction and VQA in a shared language-action format that yields additional gains through co-training.
             </p> -->
@@ -161,6 +168,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Overview</h2>
           <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
             <img src="./images/fig1_banner.png" alt="LAP Overview" style="max-width: 100%; width: 100%; height: auto;">
           </div>
@@ -543,14 +551,14 @@
   <h2 class="title is-3 has-text-centered" id="bibtex">BibTeX</h2>
   <div class="bibtex-code">
     <div class="bibtex-title">Reference</div>
-    <pre><code>@misc{zha2026lap,
-  title={LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer},
+    <pre><code>@misc{zha2026laplanguageactionpretrainingenables,
+  title={LAP: Language-Action Pre-Training Enables Zero-shot Cross-Embodiment Transfer},
   author={Lihan Zha and Asher J. Hancock and Mingtong Zhang and Tenny Yin and Yixuan Huang and Dhruv Shah and Allen Z. Ren and Anirudha Majumdar},
   year={2026},
-  eprint={XXXX.XXXXX},
+  eprint={2602.10556},
   archivePrefix={arXiv},
   primaryClass={cs.RO},
-  url={https://arxiv.org/abs/XXXX.XXXXX},
+  url={https://arxiv.org/abs/2602.10556},
 }</code></pre>
   </div>
 
