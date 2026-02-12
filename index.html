@@ -634,6 +634,77 @@
         return match ? `${match[1]}x` : '1x';
       };
 
+      const initializeVideoLoading = () => {
+        const videos = document.querySelectorAll('video');
+        const deferredVideos = [];
+
+        const loadVideo = (video) => {
+          if (video.dataset.loaded === 'true') return;
+
+          const videoSrc = video.getAttribute('data-src');
+          if (videoSrc) {
+            video.setAttribute('src', videoSrc);
+          }
+
+          const sourceNodes = video.querySelectorAll('source[data-src]');
+          sourceNodes.forEach(source => {
+            const sourceSrc = source.getAttribute('data-src');
+            if (sourceSrc) {
+              source.setAttribute('src', sourceSrc);
+            }
+          });
+
+          video.load();
+          video.dataset.loaded = 'true';
+        };
+
+        videos.forEach(video => {
+          const isTeaserVideo = video.closest('.teaser') !== null;
+          if (isTeaserVideo) {
+            video.setAttribute('preload', 'metadata');
+            return;
+          }
+
+          const directSrc = video.getAttribute('src');
+          if (directSrc) {
+            video.setAttribute('data-src', directSrc);
+            video.removeAttribute('src');
+          }
+
+          const sourceNodes = video.querySelectorAll('source[src]');
+          sourceNodes.forEach(source => {
+            source.setAttribute('data-src', source.getAttribute('src'));
+            source.removeAttribute('src');
+          });
+
+          video.setAttribute('preload', 'none');
+          deferredVideos.push(video);
+        });
+
+        if (deferredVideos.length === 0) return;
+
+        if (!('IntersectionObserver' in window)) {
+          deferredVideos.forEach(loadVideo);
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              loadVideo(video);
+              if (video.hasAttribute('autoplay')) {
+                video.play().catch(() => {});
+              }
+            } else if (video.hasAttribute('autoplay')) {
+              video.pause();
+            }
+          });
+        }, { rootMargin: '250px 0px' });
+
+        deferredVideos.forEach(video => observer.observe(video));
+      };
+
       const addVideoSpeedBadges = () => {
         const videos = document.querySelectorAll('.video-card video');
         videos.forEach(video => {
@@ -647,11 +718,12 @@
 
           const badge = document.createElement('span');
           badge.className = 'video-speed-badge';
-          badge.textContent = getVideoSpeedLabel(video.getAttribute('src'));
+          badge.textContent = getVideoSpeedLabel(video.getAttribute('data-src') || video.getAttribute('src'));
           wrapper.appendChild(badge);
         });
       };
 
+      initializeVideoLoading();
       addVideoSpeedBadges();
       window.addEventListener('scroll', updateProgress, { passive: true });
       updateProgress();
