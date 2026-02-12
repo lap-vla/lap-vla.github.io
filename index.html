@@ -81,7 +81,7 @@
       <div class="hero-header-inner">
         <div class="hero-header-content">
           <h1 class="publication-title" style="max-width: 1020px; margin: 0 auto; font-size: clamp(26.6px, 3.8vw, 53.2px); line-height: 1.2;">
-            LAP: Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer
+            <span style="color: #d84f00; font-weight: 900; letter-spacing: 0.01em;">LAP:</span> Language-Action Pre-training Enables Zero-Shot Cross-Embodiment Transfer
           </h1>
           <div class="authors" style="margin: 0 auto 15px auto;">
             <a href="https://lihzha.github.io/" target="_blank">Lihan Zha</a><sup>1</sup>,
@@ -639,6 +639,24 @@
         return match ? `${match[1]}x` : '1x';
       };
 
+      const enforceVideoMute = (video) => {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.volume = 0;
+        video.setAttribute('muted', '');
+
+        if (!video.dataset.muteLocked) {
+          video.addEventListener('volumechange', () => {
+            if (!video.muted || video.volume > 0) {
+              video.muted = true;
+              video.defaultMuted = true;
+              video.volume = 0;
+            }
+          });
+          video.dataset.muteLocked = 'true';
+        }
+      };
+
       const initializeVideoLoading = () => {
         const videos = document.querySelectorAll('video');
         const deferredVideos = [];
@@ -664,6 +682,8 @@
         };
 
         videos.forEach(video => {
+          enforceVideoMute(video);
+
           const isTeaserVideo = video.closest('.teaser') !== null;
           if (isTeaserVideo) {
             video.setAttribute('preload', 'metadata');
