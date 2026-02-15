@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="./css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="preload" href="./videos/teaser.mp4" as="video" type="video/mp4">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
@@ -148,7 +149,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-justified">
-            <video autoplay muted controls loop playsinline style="width: 100%; height: auto; border-radius: 12px;">
+            <video autoplay muted controls loop playsinline preload="auto" style="width: 100%; height: auto; border-radius: 12px;">
               <source src="./videos/teaser.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -721,7 +722,7 @@
 
           const isTeaserVideo = video.closest('.teaser') !== null;
           if (isTeaserVideo) {
-            video.setAttribute('preload', 'metadata');
+            video.setAttribute('preload', 'auto');
             return;
           }
 
