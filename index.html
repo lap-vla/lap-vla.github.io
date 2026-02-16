@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="./css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./css/index.css">
-  <link rel="preload" href="./videos/teaser.mp4" as="video" type="video/mp4">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
@@ -149,7 +148,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-justified">
-            <video autoplay muted controls loop playsinline preload="auto" style="width: 100%; height: auto; border-radius: 12px;">
+            <video id="teaser-video" data-priority-video="true" autoplay muted controls loop playsinline preload="auto" style="width: 100%; height: auto; border-radius: 12px;">
               <source src="./videos/teaser.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -239,15 +238,15 @@
             <div class="video-grid three-col">
               <div class="video-card">
                 <p class="video-label">"Sort things into the basket"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_sort_success_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/yam/yam_sort_success_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Take out a tissue and put it on table"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_tissue_success_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/yam/yam_tissue_success_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Cover the carrot with towel"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/yam/yam_cover_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/yam/yam_cover_4x.mp4"></video>
               </div>
             </div>
           </div>
@@ -258,15 +257,15 @@
             <div class="video-grid three-col">
               <div class="video-card">
                 <p class="video-label">"Put towel into the basket"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/kinova_towel_success_1x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/kinova/kinova_towel_success_1x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Put carrot into the basket"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/carrot_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/kinova/carrot_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Put marker into the bowl"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/kinova/kinova_marker_success_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/kinova/kinova_marker_success_4x.mp4"></video>
               </div>
             </div>
           </div>
@@ -275,15 +274,15 @@
             <div class="video-grid">
               <div class="video-card">
                 <p class="video-label">"Sort things into the basket"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_sort_success_cropped_1x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/franka/franka_sort_success_cropped_1x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Put the mug into the basket"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_mug_success_cropped_1x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/franka/franka_mug_success_cropped_1x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Put carrot into the bowl"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/franka/franka_carrot_success_cropped_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/franka/franka_carrot_success_cropped_4x.mp4"></video>
               </div>
             </div>
           </div>
@@ -292,15 +291,15 @@
             <div class="video-grid">
               <div class="video-card">
                 <p class="video-label">"Put marker into the cup"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_marker_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/droid/lap_marker_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Pour things onto the table"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_bowl_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/droid/lap_bowl_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label">"Put banana on the pan"</p>
-                <video autoplay muted controls loop src="./videos/sec1_zeroshot_ours/droid/lap_banana_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec1_zeroshot_ours/droid/lap_banana_2x.mp4"></video>
               </div>
             </div>
           </div>
@@ -346,19 +345,19 @@
             <div class="video-grid four-col">
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/xvla_toy_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/franka/xvla_toy_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ❌</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/pi05_droid_toy_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/franka/pi05_droid_toy_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/fast_toy_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/franka/fast_toy_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/franka/lap_toy_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/franka/lap_toy_2x.mp4"></video>
               </div>
             </div>
           </div>
@@ -368,15 +367,15 @@
             <div class="video-grid three-col">
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0}\)-replicated ⚠️</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/pi0_tissue_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/yam/pi0_tissue_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/tissue_fail_pi05_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/yam/tissue_fail_pi05_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/yam/lap_tissue_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/yam/lap_tissue_2x.mp4"></video>
               </div>
             </div>
           </div>
@@ -386,15 +385,15 @@
             <div class="video-grid three-col">
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/xvla_marker_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/kinova/xvla_marker_4x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ❌</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/pi05droid_marker_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/kinova/pi05droid_marker_4x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/kinova/lap_marker_4x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/kinova/lap_marker_4x.mp4"></video>
               </div>
             </div>
           </div>
@@ -404,19 +403,19 @@
             <div class="video-grid four-col">
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">X-VLA ❌</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/xvla_bowl_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/droid/xvla_bowl_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-DROID ⚠️</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/pi05_droid_bowl_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/droid/pi05_droid_bowl_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center;">\(\pi_{0.5}\)-replicated ⚠️</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/fast_bowl_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/droid/fast_bowl_2x.mp4"></video>
               </div>
               <div class="video-card">
                 <p class="video-label" style="text-align: center; color: #EC5800; font-weight: 900; font-size: 1.1rem;">LAP-3B ✅</p>
-                <video autoplay muted controls loop src="./videos/sec2_zeroshot_comparison/droid/lap_bowl_2x.mp4"></video>
+                <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec2_zeroshot_comparison/droid/lap_bowl_2x.mp4"></video>
               </div>
             </div>
           </div>
@@ -462,11 +461,11 @@
           <div class="video-grid two-col">
             <div class="video-card">
               <p class="video-label">YAM: Hang Tape on Rack</p>
-              <video autoplay muted controls loop src="./videos/sec3_finetune/yam_ft_tape_success_1x.mp4"></video>
+              <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec3_finetune/yam_ft_tape_success_1x.mp4"></video>
             </div>
             <div class="video-card">
               <p class="video-label">Franka: Fold Towel and Place in Basket</p>
-              <video autoplay muted controls loop src="./videos/sec3_finetune/franka_ft_towel_success_cropped_2x.mp4"></video>
+              <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec3_finetune/franka_ft_towel_success_cropped_2x.mp4"></video>
             </div>
           </div>
         </div>
@@ -527,15 +526,15 @@
           <div class="video-grid three-col">
             <div class="video-card">
               <p class="video-label" style="text-align: center;">Carrot 🥕</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/carrot_2x.mp4"></video>
+              <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec4_language_following/carrot_2x.mp4"></video>
             </div>
             <div class="video-card">
               <p class="video-label" style="text-align: center;">Corn 🌽</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/corn_1x.mp4"></video>
+              <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec4_language_following/corn_1x.mp4"></video>
             </div>
             <div class="video-card">
               <p class="video-label" style="text-align: center;">Grape 🍇</p>
-              <video autoplay muted controls loop src="./videos/sec4_language_following/grape_4x.mp4"></video>
+              <video autoplay muted controls loop playsinline preload="none" data-src="./videos/sec4_language_following/grape_4x.mp4"></video>
             </div>
           </div>
           <div class="item item-steve" style="display: flex; flex-direction: column; align-items: center;">
@@ -720,8 +719,8 @@
             video.setAttribute('poster', getPosterPath(sourcePath));
           }
 
-          const isTeaserVideo = video.closest('.teaser') !== null;
-          if (isTeaserVideo) {
+          const isPriorityVideo = video.getAttribute('data-priority-video') === 'true';
+          if (isPriorityVideo) {
             video.setAttribute('preload', 'auto');
             return;
           }
